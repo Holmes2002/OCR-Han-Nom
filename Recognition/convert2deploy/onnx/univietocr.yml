@@ -1,0 +1,36 @@
+# change to list chars of your dataset or use default vietnamese chars
+vocab: 'aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ0123456789!"#$%&''()*+,-./:;<=>?@[\]^_`{|}~ '
+
+device: cpu
+
+## preprocess image
+width_size: 128
+height_size: 32
+patch_size: 4
+max_length_token: 256
+
+
+data_file_dir: "/home/data2/thaitran/Research/OCR/source/vietocr-finetune/vietocr/trvietocr/data_17_7.txt"
+# data_file_dir: "./train_data.txt"
+processor_pretrained_path: "/home/data2/thaitran/Research/OCR/source/Implement_TrOCR/cust-data/weights_base_printed_vi_en_fixed_vocab"
+
+batch_size: 32
+shuffle: True
+num_workers: 1
+lr: 5e-5
+warmup_length: 0
+num_epochs: 100
+
+ckpt_save_path: "./union/ckpt"
+
+use_fp16: False
+
+resume_epoch: 7
+ckpt: "./union/ckpt/epoch_7.pth"
+
+
+#pretrained_params
+vietocr_pretrained: ''
+decoder_vietocr_pretrained: ''
+fc_vietocr_pretrained: ''
+union_pretrained: ''

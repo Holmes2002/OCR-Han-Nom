@@ -1,0 +1,37 @@
+# change to list chars of your dataset or use default vietnamese chars
+vocab_file: '/home1/vudinh/NomNaOCR/HanNom_Vocab/unique_vocab_and_opensource.txt'
+
+device: cuda
+
+## preprocess image
+width_size: 512
+height_size: 48
+patch_size: 4
+max_length_token: 128
+
+
+data_file_dir: '/home1/vudinh/NomNaOCR/PaddleOCR-release-2.6/dataset/detection/Patches/Train_with_OpenSource.txt'
+data_file_dir_eval: '/home1/vudinh/NomNaOCR/PaddleOCR-release-2.6/dataset/detection/Patches/Val_real.txt'
+# data_file_dir: "./train_data.txt"
+processor_pretrained_path: "/home/data2/thaitran/Research/OCR/source/Implement_TrOCR/cust-data/weights_base_printed_vi_en_fixed_vocab"
+embed_dim_vit: 384
+batch_size: 70
+shuffle: True
+num_workers: 16
+lr: 5e-6
+warmup_length: 0
+num_epochs: 30
+
+ckpt_save_path: "./trocr/pretrain_512x48"
+
+use_fp16: False
+
+resume_epoch: 0
+ckpt: ""
+
+
+#pretrained_params
+vietocr_pretrained: ''
+decoder_vietocr_pretrained: ''
+fc_vietocr_pretrained: ''
+union_pretrained: ''

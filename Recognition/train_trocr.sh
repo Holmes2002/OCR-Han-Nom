@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=1 python train_trroberta_ocr_512x48.py

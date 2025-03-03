@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: vietocr
+Version: 0.3.11
+Summary: Transformer base text detection
+Home-page: https://github.com/pbcquoc/vietocr
+Author: pbcquoc
+Author-email: pbcquoc@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# ICOCR
+## Get Started
+
+### 1. ICOCR UNION
+- setup your params training in file config config/univietocr.yml
+- venv: 172.16.10.240/home/data2/thaitran/tmp_venv/venv_38
+- checkpoints printed text: 172.16.10.240/home/data2/thaitran/Research/OCR/source/vietocr-finetune/vietocr/union/ckpt
+- training: 
+```
+CUDA_VISIBLE_DEVICES=1 python3 train_unionvietocr.py
+```
+
+### 2. ICOCR TRANS
+- modify file config (config/trvietocr.yml)
+- training: 
+```
+train_trvietocr.py
+```
+
+### 3. Convert ICOCR UNION to ONNX, TensorRT:
+- Converted torch model to ONNX: Following pipeline [ICOCR2ONNX](convert2deploy/onnx/README.md)
+- Converted torch model to TensorRT: Following pipeline [ICOCR2TRT](convert2deploy/trt/README.md)
+- Deploy Triton: Following pipeline [ICOCR-Triton](convert2deploy/triton/README.md)
+
+### 4. Deploy with fast api:
+```
+CUDA_VISIBLE_DEVCIES=1 python3 app-trocr.py
+```
+
+### 5. ICOCR End2End lib
+- Following pipeline [ICOCR End2End](icocr-lib/README.md)

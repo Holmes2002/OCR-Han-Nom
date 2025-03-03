@@ -1,0 +1,36 @@
+# change to list chars of your dataset or use default vietnamese chars
+vocab: 'aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ0123456789!"#$%&''()*+,-./:;<=>?@[\]^_`{|}~ '
+
+device: cuda
+
+## preprocess image
+width_size: 384
+height_size: 384
+
+max_length_token: 128
+
+
+# data_file_dir: "/home/data2/thaitran/Research/OCR/source/vietocr-finetune/vietocr/trvietocr/data_17_7.txt"
+data_file_dir: "./train_gt.txt"
+processor_pretrained_path: "/home1/vudinh/NomNaOCR/weights/Accident_Chinese_doc/trocr-base-preprocessor"
+
+batch_size: 32
+shuffle: True
+num_workers: 8
+lr: 5e-5
+warmup_length: 0
+num_epochs: 100
+
+ckpt_save_path: "./trvietocr/ckpt"
+
+use_fp16: False
+
+resume_epoch: 0
+ckpt: ""
+
+
+#pretrained_params
+vietocr_pretrained: ''
+decoder_vietocr_pretrained: ''
+fc_vietocr_pretrained: ''
+encoder_trocr_pretrained: '/home1/vudinh/NomNaOCR/weights/Accident_Chinese_doc/kotenseki-trocr-honkoku-ver2'

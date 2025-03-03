@@ -1,0 +1,36 @@
+# change to list chars of your dataset or use default vietnamese chars
+vocab: 'aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ0123456789!"#$%&''()*+,-./:;<=>?@[\]^_`{|}~ '
+
+device: cuda
+
+## preprocess image
+width_size: 384
+height_size: 384
+patch_size: 4
+max_length_token: 128
+
+
+data_file_dir: "/home/data2/thaitran/Research/OCR/source/vietocr-finetune/vietocr/trvietocr/data_17_7.txt"
+# data_file_dir: "./train_data.txt"
+processor_pretrained_path: "/home/data2/thaitran/Research/OCR/source/Implement_TrOCR/cust-data/weights_base_printed_vi_en_fixed_vocab"
+embed_dim_vit: 384
+batch_size: 8
+shuffle: True
+num_workers: 16
+lr: 5e-6
+warmup_length: 0
+num_epochs: 3
+
+ckpt_save_path: "./trocr/finetune"
+
+use_fp16: False
+
+resume_epoch: 0
+ckpt: ""
+
+
+#pretrained_params
+vietocr_pretrained: './weights/transformerocr.pth'
+decoder_vietocr_pretrained: './weights/vietocr/decoder.pt'
+fc_vietocr_pretrained: './weights/vietocr/fc.pt'
+union_pretrained: './union/pretrained/vit_finetune.pth'
